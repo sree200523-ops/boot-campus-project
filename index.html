@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eaf4fc">
+  <title>Team Einstein Smart Litter Collector | TKEC Campus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <main id="login-screen" class="login-screen">
+    <section class="login-story" aria-labelledby="brand-title">
+      <a class="brand brand-light" href="#" aria-label="Team Einstein Smart Litter Collector">
+        <span class="brand-mark" aria-hidden="true">↗</span>
+        <span>Team <span class="brand-campus">Einstein</span></span>
+      </a>
+      <div class="story-copy">
+        <span class="eyebrow eyebrow-light"><span class="live-dot"></span> TKEC CAMPUS SMART LITTER COLLECTOR</span>
+        <h1 id="brand-title">Good things<br>go <span>full circle.</span></h1>
+        <p>Drop it. Earn it. Give your campus a little more reason to care.</p>
+      </div>
+      <div class="story-bottom">
+        <div class="mini-avatars" aria-hidden="true"><span>AJ</span><span>MK</span><span>PS</span><span>+</span></div>
+        <p><strong>1,284 students</strong><br>are making every drop count</p>
+        <span class="story-stamp" aria-hidden="true">♻</span>
+      </div>
+      <div class="story-decoration decoration-one" aria-hidden="true"></div>
+      <div class="story-decoration decoration-two" aria-hidden="true"></div>
+    </section>
+
+    <section class="login-panel" aria-labelledby="login-heading">
+      <div class="login-panel-top"><span class="eyebrow">STUDENT ACCESS</span><span class="campus-tag"><span class="campus-dot"></span> TKEC CAMPUS</span></div>
+      <div class="login-form-wrap">
+        <div class="login-icon" aria-hidden="true">✳</div>
+        <h2 id="login-heading">Come on in.</h2>
+        <p id="login-intro" class="muted">Set up once with your email. Next time, your username is all you need.</p>
+        <div class="login-mode-switch" role="group" aria-label="Choose sign-in type">
+          <button id="first-visit-mode" class="login-mode-button" type="button" data-login-mode="first" aria-pressed="true">First visit</button>
+          <button id="returning-mode" class="login-mode-button" type="button" data-login-mode="returning" aria-pressed="false">Returning</button>
+        </div>
+        <form id="login-form">
+          <div id="login-email-field" class="login-field">
+            <label for="email">Campus email</label>
+            <input id="email" name="email" type="email" placeholder="you@campus.edu" autocomplete="email" required>
+          </div>
+          <div id="login-username-field" class="login-field">
+            <label id="username-label" for="username">Pick a public username</label>
+            <div class="username-input"><span aria-hidden="true">@</span><input id="username" name="username" type="text" placeholder="greenthumb" autocomplete="nickname" list="saved-usernames" minlength="3" maxlength="18" pattern="[a-zA-Z0-9_]+" required></div>
+            <datalist id="saved-usernames"></datalist>
+            <p id="login-hint" class="field-hint">This is how your campus community will find you.</p>
+          </div>
+          <div id="verification-field" class="login-field" hidden>
+            <label for="verification-code">Email verification code</label>
+            <input id="verification-code" name="verification-code" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="6-digit code" minlength="6" maxlength="6" pattern="[0-9]{6}">
+            <p id="verification-note" class="field-hint"></p>
+            <p id="verification-demo" class="verification-demo" hidden>Prototype verification code <strong id="demo-code"></strong></p>
+            <button id="back-to-registration" class="text-link verification-back" type="button">Change email or username</button>
+          </div>
+          <p id="login-feedback" class="login-feedback" role="status" aria-live="polite" hidden></p>
+          <button id="login-submit" class="button button-dark login-button" type="submit"><span id="login-submit-label">Start my loop</span><span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="privacy-note"><span aria-hidden="true">◉</span> Your verified email is linked to your username on this device.</p>
+      </div>
+      <div class="login-footer"><span>TEAM EINSTEIN SMART LITTER COLLECTOR</span><span>01 / 03</span></div>
+    </section>
+  </main>
+
+  <div id="app" class="app-shell" hidden>
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Team Einstein dashboard"><span class="brand-mark" aria-hidden="true">↗</span><span>Team <span class="brand-campus">Einstein</span></span></a>
+      <div class="sidebar-campus"><span class="campus-dot"></span><span>TKEC CAMPUS</span><span aria-hidden="true">⌄</span></div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <span class="nav-label">YOUR SPACE</span>
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon" aria-hidden="true">◫</span> Overview</button>
+        <button class="nav-item" data-view="rewards"><span class="nav-icon" aria-hidden="true">✳</span> Rewards <span class="nav-count">3</span></button>
+        <span class="nav-label nav-label-spaced">THE COMMUNITY</span>
+        <button class="nav-item" data-view="community"><span class="nav-icon" aria-hidden="true">◎</span> TKEC community</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-impact"><span class="impact-icon" aria-hidden="true">↗</span><span><strong>You're in the top 12%</strong><small>of campus recyclers</small></span></div>
+        <button id="profile-menu" class="sidebar-profile" aria-label="View your public profile"><span class="avatar avatar-coral" id="sidebar-avatar">S</span><span class="profile-identity"><strong id="sidebar-username">your handle</strong><small>View public profile</small></span><span class="profile-arrow" aria-hidden="true">↗</span></button>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar"><div class="mobile-brand"><a class="brand" href="#dashboard"><span class="brand-mark" aria-hidden="true">↗</span><span>Team <span class="brand-campus">Einstein</span></span></a></div><div class="topbar-campus"><span class="campus-dot"></span> TKEC CAMPUS <span class="topbar-divider">/</span> SMART LITTER COLLECTOR</div><div class="topbar-right"><span class="streak"><span aria-hidden="true">✳</span> <strong id="streak-count">3</strong> day streak</span><button class="topbar-avatar" id="topbar-profile" aria-label="View your public profile">S</button></div></header>
+
+      <main class="content">
+        <section class="view-panel active" id="dashboard-view" aria-labelledby="greeting">
+          <div class="welcome-row"><div><span class="eyebrow"><span class="live-dot"></span> YOUR IMPACT, IN REAL TIME</span><h1 id="greeting">Hey, <span id="greeting-name">there</span> <span class="greeting-spark" aria-hidden="true">✳</span></h1><p class="muted">A little less waste looks good on you.</p></div><button id="public-profile-shortcut" class="text-link">Your public profile <span aria-hidden="true">↗</span></button></div>
+
+          <div class="dashboard-grid">
+            <section class="balance-card" aria-labelledby="balance-title">
+              <div class="balance-top"><span id="balance-title">YOUR LOOP BALANCE</span><span class="balance-period">THIS SEMESTER <span aria-hidden="true">↗</span></span></div>
+              <div class="balance-number"><span id="coin-balance">248</span><span class="coin-symbol" aria-hidden="true">●</span></div>
+              <div class="balance-foot"><span>loop coins</span><span class="balance-change"><span aria-hidden="true">↗</span> <span id="balance-gain">+36 this week</span></span></div>
+              <div class="balance-art" aria-hidden="true"><span class="art-ring ring-one"></span><span class="art-ring ring-two"></span><span class="art-leaf">✳</span></div>
+            </section>
+            <section class="impact-card" aria-labelledby="impact-title"><div class="card-topline"><span class="card-icon mint-icon" aria-hidden="true">♧</span><span class="trend-pill">↑ 18%</span></div><h2 id="impact-title">Your footprint<br>is shrinking.</h2><p><strong id="waste-total">4.6 kg</strong> diverted from landfill</p><div class="impact-meter" aria-label="Weekly recycling goal: 3 of 5 deposits"><span class="meter-fill"></span><span class="meter-track"></span><span class="meter-mark">GOAL 5</span></div><span class="impact-caption">3 of 5 deposits this week</span></section>
+          </div>
+
+          <div class="section-heading"><div><span class="eyebrow">THE GOOD STUFF</span><h2>Make a deposit</h2></div><span class="section-aside">Every bit adds up <span aria-hidden="true">↗</span></span></div>
+          <section class="deposit-card" aria-labelledby="deposit-title">
+            <div class="deposit-main">
+              <div class="deposit-heading"><span class="deposit-bin" aria-hidden="true">♲</span><div><h3 id="deposit-title">Smart bin #04</h3><p><span class="online-dot"></span> Library courtyard <span class="location-separator">·</span> ready</p></div></div>
+              <fieldset class="category-fieldset">
+                <legend>TRASH CATEGORY <span>COINS / L</span></legend>
+                <div class="category-options">
+                  <label class="category-option"><input type="radio" name="trash-category" value="degradable" data-label="Degradable"><span class="category-name">Degradable</span><span class="category-rate">12 / L</span></label>
+                  <label class="category-option"><input type="radio" name="trash-category" value="biodegradable" data-label="Biodegradable" checked><span class="category-name">Biodegradable</span><span class="category-rate">16 / L</span></label>
+                  <label class="category-option"><input type="radio" name="trash-category" value="non-degradable" data-label="Non-degradable"><span class="category-name">Non-degradable</span><span class="category-rate">8 / L</span></label>
+                </div>
+              </fieldset>
+              <label class="volume-label" for="volume-slider"><span>TRASH VOLUME</span><span><strong id="volume-value">0.75</strong> L</span></label>
+              <input id="volume-slider" type="range" min="0.25" max="4" value="0.75" step="0.25" aria-label="Trash volume in liters">
+              <div class="range-labels"><span>0.25 L</span><span>4 L</span></div>
+              <div class="payout-line"><span>Estimated payout</span><strong aria-live="polite"><span aria-hidden="true">●</span> <span id="payout-value">12</span> coins</strong></div>
+              <button id="deposit-button" class="button button-dark deposit-button">Log a deposit <span aria-hidden="true">↗</span></button>
+            </div>
+            <div class="deposit-aside"><div class="bin-illustration" aria-hidden="true"><span class="bin-spark spark-a">✳</span><span class="bin-spark spark-b">✦</span><div class="bin-lid"></div><div class="bin-body"><span class="bin-logo">loop<small>SMART BIN</small></span><span class="bin-level"><span id="bin-fill"></span></span></div><div class="bin-base"></div></div><p>Good deposit.<br><strong>Good karma.</strong></p><span class="bin-location">● BIN ONLINE</span></div>
+          </section>
+
+          <div class="lower-grid"><section class="recent-section" aria-labelledby="recent-title"><div class="lower-heading"><h2 id="recent-title">Recent activity</h2><button class="text-link" data-view="community">See campus <span aria-hidden="true">↗</span></button></div><div id="activity-list" class="activity-list"><article class="activity-item"><span class="activity-mark mint-icon" aria-hidden="true">♲</span><span class="activity-detail"><strong>Smart bin #02</strong><small>Plastic · Yesterday, 2:14 PM</small></span><span class="activity-coins">+12 <i>●</i></span></article><article class="activity-item"><span class="activity-mark peach-icon" aria-hidden="true">♲</span><span class="activity-detail"><strong>Smart bin #04</strong><small>Mixed recyclables · Yesterday, 9:30 AM</small></span><span class="activity-coins">+8 <i>●</i></span></article><article class="activity-item"><span class="activity-mark lilac-icon" aria-hidden="true">✳</span><span class="activity-detail"><strong>Weekly streak bonus</strong><small>Three days in a row · Monday</small></span><span class="activity-coins">+16 <i>●</i></span></article></div></section><aside class="nudge-card"><span class="nudge-icon" aria-hidden="true">✳</span><span class="eyebrow">TINY ACT, BIG ENERGY</span><h3>Refill.<br>Reuse.<br><span>Repeat.</span></h3><p>Your next deposit gets you closer to a coffee on us.</p><button class="text-link" data-view="rewards">See what's up for grabs <span aria-hidden="true">↗</span></button><span class="nudge-number" aria-hidden="true">03</span></aside></div>
+        </section>
+
+        <section class="view-panel" id="rewards-view" aria-labelledby="rewards-title" hidden><div class="page-heading"><span class="eyebrow"><span class="live-dot"></span> LITTLE THANK-YOUS, EARNED</span><h1 id="rewards-title">Put your coins<br>to <span>good use.</span></h1><p class="muted">You've got <strong id="rewards-balance">248</strong> loop coins to play with.</p></div><div id="reward-grid" class="reward-grid"></div></section>
+
+        <section class="view-panel" id="community-view" aria-labelledby="community-title" hidden><div class="page-heading community-heading"><div><span class="eyebrow"><span class="live-dot"></span> BETTER, TOGETHER</span><h1 id="community-title">The campus<br><span>loop.</span></h1><p class="muted">Meet the people making this place a little greener.</p></div><div class="community-total"><strong>1,284</strong><span>IN THE LOOP</span></div></div><div class="community-toolbar"><div><span class="eyebrow">CAMPUS LEADERS</span><h2>This week's good eggs.</h2></div><span class="leaderboard-label">WEEKLY COINS <span aria-hidden="true">●</span></span></div><div id="leaderboard" class="leaderboard"></div></section>
+      </main>
+      <footer class="app-footer"><span>SMALL DROPS. BIG RIPPLE.</span><span>TEAM EINSTEIN SMART LITTER COLLECTOR <span aria-hidden="true">✳</span></span></footer>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation"><button class="mobile-nav-item active" data-view="dashboard"><span aria-hidden="true">◫</span>Home</button><button class="mobile-nav-item" data-view="rewards"><span aria-hidden="true">✳</span>Rewards</button><button class="mobile-nav-item" data-view="community"><span aria-hidden="true">◎</span>Campus</button></nav>
+  </div>
+
+  <dialog id="profile-dialog" class="modal profile-modal" aria-labelledby="profile-title"><button class="modal-close" data-close-dialog aria-label="Close profile">×</button><div id="profile-content"></div></dialog>
+  <dialog id="success-dialog" class="modal success-modal" aria-labelledby="success-title"><button class="modal-close" data-close-dialog aria-label="Close reward confirmation">×</button><div class="success-confetti" aria-hidden="true"></div><div class="success-orbit" aria-hidden="true"><span>✳</span></div><span class="eyebrow">A LITTLE SOMETHING, EARNED</span><h2 id="success-title">That's a<br><span>good choice.</span></h2><p id="success-copy"></p><div class="success-stamp">CLAIMED <span>✓</span></div><button class="button button-dark" data-close-dialog>Love that for me <span aria-hidden="true">↗</span></button></dialog>
+</body>
+</html>
